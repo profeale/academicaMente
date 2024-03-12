@@ -1,0 +1,85 @@
+<div class="form-register">
+
+    <h4>REGISTRARSE</h4>
+  
+    <form [formGroup]="formRegistro" (ngSubmit)="registrarse($event)" novalidate>
+  
+      <!-- Nombre y Apellido -->
+      <div class="form-group was-validated">
+        <input type="text" class="form-control" placeholder="NOMBRE Y APELLIDO" id="fullname" formControlName="fullname" required minlength="5" maxlength="30">
+        <span *ngIf="Fullname?.errors?.['required']">* Requerido</span>
+        <div class="invalid-feedback">Por favor, ingresa tu Nombre y Apellido...</div>
+      </div>
+  
+      <!-- Usuario -->
+      <div class="form-group was-validated">
+        <input type="text" class="form-control" placeholder="USUARIO" id="username" formControlName="username" required minlength="5" maxlength="15">
+        <span *ngIf="Username?.errors?.['required']">* Requerido</span>
+        <div class="invalid-feedback">Por favor, ingresa tu Usuario...</div>
+      </div>
+  
+      <!-- Email -->
+      <div class="form-group was-validated">
+        <input type="email" class="form-control" placeholder="CORREO ELECTRÓNICO" id="email" formControlName="email" required minlength="8" maxlength="40">
+        <span *ngIf="Email?.errors?.['required']">* Requerido</span>
+        <div class="invalid-feedback">Por favor, ingresa tu Correo Electrónico (Email inválido)...</div>
+      </div>
+  
+      <!-- Contraseña -->
+      <div class="form-group was-validated">
+        <input type="password" class="form-control" placeholder="CONTRASEÑA" id="password" formControlName="password" required minlength="5" maxlength="30">
+        <span *ngIf="Password?.errors?.['required']">* Requerido</span>
+        <div class="invalid-feedback">Por favor, ingresa tu Contraseña...</div>
+      </div>
+
+      <!-- Ciudad -->
+      <div class="form-group was-validated">
+        <input type="ciudad" class="form-control" placeholder="Ciudad" id="ciudad" formControlName="ciudad" required minlength="5" maxlength="40">
+        <span *ngIf="Ciudad?.errors?.['required']">* Requerido</span>
+        <div class="invalid-feedback">Por favor, ingresa tu ciudad...</div>
+      </div>
+
+      <!-- Pais -->
+      <div class="form-group was-validated">
+        <input type="pais" class="form-control" placeholder="Pais" id="pais" formControlName="pais" required minlength="5" maxlength="40">
+        <span *ngIf="Pais?.errors?.['required']">* Requerido</span>
+        <div class="invalid-feedback">Por favor, ingresa tu país de residencia...</div>
+      </div>
+
+      <!-- Carrera -->
+      <div class="form-group was-validated">
+        <input type="carrera" class="form-control" placeholder="Carrera" id="carrera" formControlName="carrera" required minlength="5" maxlength="50">
+        <span *ngIf="Carrera?.errors?.['required']">* Requerido</span>
+        <div class="invalid-feedback">Por favor, ingresa tu carrera...</div>
+      </div>
+
+      <!-- Institución -->
+      <div class="form-group was-validated">
+        <input type="institucion" class="form-control" placeholder="Institución" id="institucion" formControlName="institucion" required minlength="5" maxlength="50">
+        <span *ngIf="Institucion?.errors?.['required']">* Requerido</span>
+        <div class="invalid-feedback">Por favor, ingresa tu institución...</div>
+      </div>
+  
+      <!-- ¿Acepta Terminos y Condiciones? -->
+      <p>
+        <input type="checkbox" name="Aceptar" id="checkbox" formControlName="checkbox"> Acepto los
+        <a class="enlaces-negros" href="termycond" required>TERMINOS Y CONDICIONES</a>
+      </p>
+  
+      <!-- Botón Final -->
+      <div class="resultado">{{datosValidados}}</div>
+      <div class="resultado">{{datosRegistrados}}</div>
+      <button type="submit" class="btn btn-primary w-100">REGISTRAR</button>
+
+      <!-- Opción para registro con Google -->
+      <a href="#" (click)="registrarConGoogle()">Registrarse con Google</a>
+      </form>
+
+      
+  
+      <!-- ¿Ya tiene cuenta? -->
+      <p>
+        <a class="enlaces-negros" href="login">Ya tengo CUENTA</a>
+      </p>
+    </form>
+  </div>
